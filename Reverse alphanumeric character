@@ -1,0 +1,32 @@
+def revert_string(s):
+    """
+    Reverse alphanumeric character in a string and ignore Low/Uppercase.
+    Not alphanumeric: (space)!#%&? will stay in the same positions.
+
+    Parameters
+    ----------
+    s : string
+    """
+
+    sl = s.split(' ')
+    rsl = ''
+
+    for word in sl:
+        str_word = ''
+        rev_sub_word = ''
+
+        for ch in word:
+            if ch.isalnum():
+                str_word += ch
+            else:
+                rev_sub_word += str_word[::-1] + ch
+                str_word = ''
+
+        r_word = rev_sub_word + str_word[::-1]
+        rsl += r_word + ' '
+    return rsl.capitalize()
+
+
+string = 'The brown dog jumps in the meadows.'
+
+print(revert_string(string))
