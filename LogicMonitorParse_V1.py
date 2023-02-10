@@ -17,8 +17,6 @@ with open(file, 'r') as f:
     doc = BeautifulSoup(f, 'html.parser')
 
 script = str(doc.find('script'))
-match = re.search('"timestamps"', script)
-
 
 def find_index(term, ch):
     """Find all needful indexes with ch in str
